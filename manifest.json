@@ -1,0 +1,8 @@
+{
+  "name": "Voice Screen Share",
+  "version": "1.0.0",
+  "description": "Connect to a voice channel, then ctrl-click it to enter screen share mode.",
+  "author": "Cadence#3263",
+  "license": "MIT",
+  "optionalDependencies": ["powercord-doubleClickVoice"]
+}
