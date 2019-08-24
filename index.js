@@ -36,16 +36,17 @@ module.exports = class VoiceSS extends Plugin {
 		})
 		inject("cadence-voicess-rcs", RCS.prototype, "render", function(_, res) {
 			let rtc = document.querySelector(".container-1giJp5")
-			if (!rtc) return
-			let channel = getOwnerInstance(rtc).props.channel
-			let link = res.props.children[1].props.children[1]
-			let old = link.props.onClick
-			link.props.onClick = function(event) {
-				if (event.ctrlKey) {
-					event.preventDefault()
-					selectChannel(channel.guild_id, channel.id)
-				} else if (old) {
-					old(event)
+			if (rtc) {
+				let channel = getOwnerInstance(rtc).props.channel
+				let link = res.props.children[1].props.children[1]
+				let old = link.props.onClick
+				link.props.onClick = function(event) {
+					if (event.ctrlKey) {
+						event.preventDefault()
+						selectChannel(channel.guild_id, channel.id)
+					} else if (old) {
+						old(event)
+					}
 				}
 			}
 			return res
